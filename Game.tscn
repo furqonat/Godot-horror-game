@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Level/Scenes/Brick.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Level/Scenes/Centered Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Level/Scenes/Large Window.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Level/Scenes/Left Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Level/Scenes/Window.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Level/Scenes/Door.tscn" type="PackedScene" id=7]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 40, 0.2, 40 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.184314, 0.184314, 0.184314, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -20, 0.1, 20, 20, 0.1, 20, -20, -0.1, 20, 20, 0.1, 20, 20, -0.1, 20, -20, -0.1, 20, 20, 0.1, -20, -20, 0.1, -20, 20, -0.1, -20, -20, 0.1, -20, -20, -0.1, -20, 20, -0.1, -20, 20, 0.1, 20, 20, 0.1, -20, 20, -0.1, 20, 20, 0.1, -20, 20, -0.1, -20, 20, -0.1, 20, -20, 0.1, -20, -20, 0.1, 20, -20, -0.1, -20, -20, 0.1, 20, -20, -0.1, 20, -20, -0.1, -20, 20, 0.1, 20, -20, 0.1, 20, 20, 0.1, -20, -20, 0.1, 20, -20, 0.1, -20, 20, 0.1, -20, -20, -0.1, 20, 20, -0.1, 20, -20, -0.1, -20, 20, -0.1, 20, 20, -0.1, -20, -20, -0.1, -20 )
+
+[node name="Game" type="Spatial"]
+
+[node name="Floor" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3293, 0.2, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Floor"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Floor2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3293, 6.07775, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Floor2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor2/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.326906, 0 )
+
+[node name="Small Home" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.98406, -3.91093 )
+
+[node name="Brick" parent="Small Home" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 9.68149, 2.32163, 11.24 )
+
+[node name="Brick4" parent="Small Home" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 9.68149, 2.32163, 3.32666 )
+
+[node name="Brick6" parent="Small Home" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 9.68149, 2.32163, -4.62052 )
+
+[node name="Brick5" parent="Small Home" instance=ExtResource( 2 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 5.72789, 2.32163, -0.766474 )
+
+[node name="Brick7" parent="Small Home" instance=ExtResource( 2 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 5.72789, 2.32163, -8.684 )
+
+[node name="Brick3" parent="Small Home" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1.82964, 2.32163, 11.24 )
+
+[node name="Brick2" parent="Small Home" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -6.13794, 2.32163, 11.3292 )
+
+[node name="Centered Door" parent="Small Home" instance=ExtResource( 3 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 5.76669, 2.30216, 15.2857 )
+
+[node name="Large Window" parent="Small Home" instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -2.13284, 2.318, 15.2922 )
+
+[node name="Large Window2" parent="Small Home" instance=ExtResource( 4 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -6.13203, 2.318, 3.20492 )
+
+[node name="Left Door" parent="Small Home" instance=ExtResource( 5 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -2.208, 2.322, 7.321 )
+
+[node name="Left Door3" parent="Small Home" instance=ExtResource( 5 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 5.67166, 2.322, 7.321 )
+
+[node name="Left Door2" parent="Small Home" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1.81395, 2.322, 3.23444 )
+
+[node name="Left Door4" parent="Small Home" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1.81395, 2.322, -4.82269 )
+
+[node name="Left Door5" parent="Small Home" instance=ExtResource( 5 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, -6.112, 2.322, -4.823 )
+
+[node name="Left Door6" parent="Small Home" instance=ExtResource( 5 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -2.08962, 2.322, -8.72702 )
+
+[node name="Window and Door" type="Spatial" parent="Small Home"]
+
+[node name="Window" parent="Small Home/Window and Door" instance=ExtResource( 6 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -2.11923, 2.31806, 15.2939 )
+
+[node name="Window2" parent="Small Home/Window and Door" instance=ExtResource( 6 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -6.14064, 2.31806, 3.21754 )
+
+[node name="Door" type="Spatial" parent="."]
+
+[node name="door" parent="Door" instance=ExtResource( 7 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -6.0481, 0.338679, -10.644 )

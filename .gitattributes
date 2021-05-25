@@ -1,0 +1,2 @@
+*.stex filter=lfs diff=lfs merge=lfs -text
+*.etc.stex filter=lfs diff=lfs merge=lfs -text

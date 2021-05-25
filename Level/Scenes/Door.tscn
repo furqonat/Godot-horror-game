@@ -1,0 +1,105 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Level/Modular/door.glb" type="PackedScene" id=1]
+[ext_resource path="res://Level/Scripts/door.gd" type="Script" id=2]
+
+[sub_resource type="ConcavePolygonShape" id=1]
+data = PoolVector3Array( -0.836, 0.964, 0, -0.836, -1.046, -0.034, -0.836, 0.964, -0.034, -0.836, 0.964, 0, -0.836, -1.046, 0, -0.836, -1.046, -0.034, -0.836, 0.964, -0.034, 0, -1.046, -0.034, 0, 0.964, -0.034, -0.836, 0.964, -0.034, -0.836, -1.046, -0.034, 0, -1.046, -0.034, 0, 0.964, -0.034, 0, -1.046, 0, 0, 0.964, 0, 0, 0.964, -0.034, 0, -1.046, -0.034, 0, -1.046, 0, 0, 0.964, 0, -0.836, -1.046, 0, -0.836, 0.964, 0, 0, 0.964, 0, 0, -1.046, 0, -0.836, -1.046, 0, -0.836, -1.046, 0, 0, -1.046, -0.034, -0.836, -1.046, -0.034, -0.836, -1.046, 0, 0, -1.046, 0, 0, -1.046, -0.034, 0, 0.964, 0, -0.836, 0.964, -0.034, 0, 0.964, -0.034, 0, 0.964, 0, -0.836, 0.964, 0, -0.836, 0.964, -0.034 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.357835, 0.968496, 0.0898564 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -0.5, 2.1, 0.0267, -0.5, 0, -0.0533, -0.5, 2.1, -0.0533, -0.5, 2.1, 0.0267, -0.5, 0, 0.0267, -0.5, 0, -0.0533, 0.42, 2.02, 0.0267, 0.42, 0, -0.0133, 0.42, 2.02, -0.0133, 0.42, 2.02, 0.0267, 0.42, 0, 0.0267, 0.42, 0, -0.0133, -0.5, 2.1, -0.0533, 0.5, 2.1, 0.0267, -0.5, 2.1, 0.0267, -0.5, 2.1, -0.0533, 0.5, 2.1, -0.0533, 0.5, 2.1, 0.0267, 0.5, 0, 0.0267, 0.5, 2.1, -0.0533, 0.5, 0, -0.0533, 0.5, 0, 0.0267, 0.5, 2.1, 0.0267, 0.5, 2.1, -0.0533, -0.42, 2.02, -0.0133, -0.42, 0, 0.0267, -0.42, 2.02, 0.0267, -0.42, 2.02, -0.0133, -0.42, 0, -0.0133, -0.42, 0, 0.0267, -0.4, 2.02, -0.0533, -0.4, 0, -0.0133, -0.4, 2.02, -0.0133, -0.4, 2.02, -0.0533, -0.4, 0, -0.0533, -0.4, 0, -0.0133, 0.5, 0, -0.0533, 0.42, 2.02, -0.0533, 0.42, 0, -0.0533, 0.5, 0, -0.0533, 0.5, 2.1, -0.0533, 0.42, 2.02, -0.0533, -0.42, 2.02, 0.0267, 0.42, 2.02, -0.0133, -0.42, 2.02, -0.0133, -0.42, 2.02, 0.0267, 0.42, 2.02, 0.0267, 0.42, 2.02, -0.0133, -0.42, 2.02, 0.0267, -0.5, 0, 0.0267, -0.5, 2.1, 0.0267, -0.42, 2.02, 0.0267, -0.42, 0, 0.0267, -0.5, 0, 0.0267, 0.42, 0, 0.0267, 0.5, 2.1, 0.0267, 0.5, 0, 0.0267, 0.42, 0, 0.0267, 0.42, 2.02, 0.0267, 0.5, 2.1, 0.0267, -0.42, 2.02, -0.0133, -0.4, 0, -0.0133, -0.42, 0, -0.0133, -0.42, 2.02, -0.0133, -0.4, 2.02, -0.0133, -0.4, 0, -0.0133, -0.5, 2.1, -0.0533, -0.42, 0, -0.0533, -0.42, 2.02, -0.0533, -0.5, 2.1, -0.0533, -0.5, 0, -0.0533, -0.42, 0, -0.0533, -0.4, 2, -0.0533, 0.4, 2, -0.0133, 0.4, 2, -0.0533, -0.4, 2, -0.0533, -0.4, 2, -0.0133, 0.4, 2, -0.0133, 0.42, 2.02, 0.0267, -0.5, 2.1, 0.0267, 0.5, 2.1, 0.0267, 0.42, 2.02, 0.0267, -0.42, 2.02, 0.0267, -0.5, 2.1, 0.0267, -0.42, 2.02, -0.0533, 0.5, 2.1, -0.0533, -0.5, 2.1, -0.0533, -0.42, 2.02, -0.0533, 0.42, 2.02, -0.0533, 0.5, 2.1, -0.0533, -0.42, 0, -0.0133, -0.4, 0, -0.0533, -0.42, 0, -0.0533, -0.42, 0, -0.0133, -0.4, 0, -0.0133, -0.4, 0, -0.0533, -0.4, 2.02, -0.0533, -0.42, 0, -0.0533, -0.4, 0, -0.0533, -0.4, 2.02, -0.0533, -0.42, 2.02, -0.0533, -0.42, 0, -0.0533, 0.4, 2.02, -0.0133, 0.42, 0, -0.0133, 0.4, 0, -0.0133, 0.4, 2.02, -0.0133, 0.42, 2.02, -0.0133, 0.42, 0, -0.0133, 0.4, 2.02, -0.0133, 0.4, 0, -0.0533, 0.4, 2.02, -0.0533, 0.4, 2.02, -0.0133, 0.4, 0, -0.0133, 0.4, 0, -0.0533, 0.4, 0, -0.0133, 0.42, 0, -0.0533, 0.4, 0, -0.0533, 0.4, 0, -0.0133, 0.42, 0, -0.0133, 0.42, 0, -0.0533, 0.42, 2.02, -0.0533, 0.4, 0, -0.0533, 0.42, 0, -0.0533, 0.42, 2.02, -0.0533, 0.4, 2.02, -0.0533, 0.4, 0, -0.0533, -0.4, 2, -0.0533, 0.4, 2.02, -0.0533, -0.4, 2.02, -0.0533, -0.4, 2, -0.0533, 0.4, 2, -0.0533, 0.4, 2.02, -0.0533, -0.4, 2.02, -0.0133, 0.4, 2, -0.0133, -0.4, 2, -0.0133, -0.4, 2.02, -0.0133, 0.4, 2.02, -0.0133, 0.4, 2, -0.0133, -0.42, 2.02, -0.0533, 0.4, 2.02, -0.0533, 0.42, 2.02, -0.0533 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Close"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Door_Group/DoorFrame001/Door001:rotation_degrees:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Door_Group/DoorFrame001/Door001:rotation_degrees:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 90, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Door_Group/DoorFrame001/Door001:rotation_degrees:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Open"
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Door_Group/DoorFrame001/Door001:rotation_degrees:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Door_Group/DoorFrame001/Door001:rotation_degrees:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 90, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Door_Group/DoorFrame001/Door001:rotation_degrees:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1 )
+}
+
+[node name="door" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Door_Group/DoorFrame001/Door001" index="2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Door_Group/DoorFrame001/Door001/StaticBody" index="0"]
+shape = SubResource( 1 )
+
+[node name="Front" type="Area" parent="Door_Group/DoorFrame001/Door001" index="3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Door_Group/DoorFrame001/Door001/Front" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.439905, -0.0437989, -0.0275099 )
+shape = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="Door_Group/DoorFrame001" index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Door_Group/DoorFrame001/StaticBody" index="0"]
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+anims/Close = SubResource( 4 )
+anims/Open = SubResource( 5 )
+
+[connection signal="body_exited" from="Door_Group/DoorFrame001/Door001/Front" to="." method="_on_Front_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
