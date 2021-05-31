@@ -42,4 +42,3 @@ func _on_animation_finished(anim_name: String) -> void:
 
 func _on_Front_body_exited(body: Node) -> void:
 	door_entered = false
-	pass # Replace with function body.

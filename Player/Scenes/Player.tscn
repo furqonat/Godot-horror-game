@@ -60,4 +60,8 @@ spring_length = 2.0
 
 [node name="Camera" type="Camera" parent="CameraRoot/CameraBase/SpringArm"]
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.6
+autostart = true
+
 [editable path="Player"]

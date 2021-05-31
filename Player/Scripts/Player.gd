@@ -1,6 +1,8 @@
 extends KinematicBody
 
 
+signal position_now(position)
+
 const GRAVITY = -9.8
 
 var root_motion: Transform
@@ -17,11 +19,14 @@ onready var camera_root: Spatial = get_node("CameraRoot")
 onready var camera_base: Spatial = get_node("CameraRoot/CameraBase")
 onready var camera_view: Camera = get_node("CameraRoot/CameraBase/SpringArm/Camera")
 
+onready var timer: Timer = get_node("Timer")
+
 
 func _ready() -> void:
 	orientation = model.global_transform
 	orientation.origin = Vector3.ZERO
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	timer.connect("timeout", self, "_on_timer_timeout")
 
 func _physics_process(delta: float) -> void:
 	var motion_target = Vector2(
@@ -76,4 +81,10 @@ func _input(event: InputEvent) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			
+
+func _on_timer_timeout() -> void:
+	emit_signal("position_now", self.global_transform.origin)
+	print("ready to move")
+	
 
