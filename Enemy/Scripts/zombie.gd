@@ -30,10 +30,11 @@ func _physics_process(delta) -> void:
 		if next_size > dir.length():
 			next_size = dir.length()
 			path.remove(0)
-		if self.global_transform.origin.distance_to(target.global_transform.origin) < 3:
+		if self.global_transform.origin.distance_to(target.global_transform.origin) < 10:
 			$animation_tree['parameters/walk/blend_position'] = 1
-			if self.global_transform.origin.distance_to(target.global_transform.origin) < 0.7:
+			if self.global_transform.origin.distance_to(target.global_transform.origin) < 2:
 				$animation_tree['parameters/walk/blend_position'] = 0
+				$animation_tree['parameters/attack/active'] = true
 		dir = move_and_slide(dir.normalized() * speed, Vector3.UP)
 		dir.y = 0
 		if dir:
@@ -58,7 +59,7 @@ func draw_path(path_array) -> void:
 
 
 func _on_Player_position_now(position: Vector3) -> void:
-	if global_transform.origin.distance_to(position) < 3:
+	if global_transform.origin.distance_to(position) < 10:
 		path = nav.get_simple_path(global_transform.origin, target.global_transform.origin, true)
 		draw_path(path)
 	else:

@@ -15,7 +15,6 @@ func _ready() -> void:
 	self.connect("door_is_open", self, "door_open")
 	
 func _physics_process(delta: float) -> void:
-	print(door_entered)
 	if is_open and Input.is_action_just_pressed("lock_door"):
 			if door_entered:
 				animation_player.play("Close")

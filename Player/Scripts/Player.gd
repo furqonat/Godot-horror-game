@@ -3,6 +3,10 @@ extends KinematicBody
 
 signal position_now(position)
 
+signal body_hit(health)
+
+var max_health = 100
+
 const GRAVITY = -9.8
 
 var root_motion: Transform
@@ -20,6 +24,7 @@ onready var camera_base: Spatial = get_node("CameraRoot/CameraBase")
 onready var camera_view: Camera = get_node("CameraRoot/CameraBase/SpringArm/Camera")
 
 onready var timer: Timer = get_node("Timer")
+onready var area: Area = get_node("Area")
 
 
 func _ready() -> void:
@@ -27,6 +32,7 @@ func _ready() -> void:
 	orientation.origin = Vector3.ZERO
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	timer.connect("timeout", self, "_on_timer_timeout")
+	area.connect("body_entered", self, "_on_body_entered")
 
 func _physics_process(delta: float) -> void:
 	var motion_target = Vector2(
@@ -85,6 +91,13 @@ func _input(event: InputEvent) -> void:
 
 func _on_timer_timeout() -> void:
 	emit_signal("position_now", self.global_transform.origin)
-	print("ready to move")
 	
+	
+func _on_body_entered(body) -> void:
+	if body is Attack:
+		var damage_taken = 10
+		max_health -= damage_taken
+		emit_signal("body_hit", max_health)
+		pass
+	pass
 

@@ -64,4 +64,10 @@ spring_length = 2.0
 wait_time = 0.6
 autostart = true
 
+[node name="Area" type="Area" parent="."]
+
+[node name="Body2" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.603, 0 )
+shape = SubResource( 1 )
+
 [editable path="Player"]
