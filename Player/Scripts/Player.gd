@@ -25,6 +25,7 @@ onready var camera_view: Camera = get_node("CameraRoot/CameraBase/SpringArm/Came
 
 onready var timer: Timer = get_node("Timer")
 onready var area: Area = get_node("Area")
+onready var health_bar = get_node("HUD/Health/bar")
 
 
 func _ready() -> void:
@@ -33,6 +34,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	timer.connect("timeout", self, "_on_timer_timeout")
 	area.connect("body_entered", self, "_on_body_entered")
+	health_bar.value = max_health
 
 func _physics_process(delta: float) -> void:
 	var motion_target = Vector2(
@@ -49,6 +51,9 @@ func _physics_process(delta: float) -> void:
 	camera_x = camera_x.normalized()
 	camera_z.y = 0
 	camera_z = camera_z.normalized()
+	
+	if health_bar.value == 0:
+		print("die")
 	
 	if motion_target.length() > 0:
 		var target = camera_x * motion.x - camera_z * motion.y
@@ -95,9 +100,8 @@ func _on_timer_timeout() -> void:
 	
 func _on_body_entered(body) -> void:
 	if body is Attack:
-		var damage_taken = 10
+		var damage_taken = 5
 		max_health -= damage_taken
 		emit_signal("body_hit", max_health)
-		pass
-	pass
+		health_bar.value = max_health
 

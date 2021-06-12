@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Player.glb" type="PackedScene" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
@@ -27,6 +27,12 @@ min_space = 0.0
 nodes/walk/node = SubResource( 5 )
 nodes/walk/position = Vector2( 0, 53.3333 )
 node_connections = [ "output", 0, "walk" ]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 0, 0, 1 )
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 2 )
@@ -69,5 +75,29 @@ autostart = true
 [node name="Body2" type="CollisionShape" parent="Area"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.603, 0 )
 shape = SubResource( 1 )
+
+[node name="HUD" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Control" parent="HUD"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 231.0
+margin_bottom = 87.0
+
+[node name="bar" type="ProgressBar" parent="HUD/Health"]
+anchor_top = 0.409
+anchor_right = 1.0
+anchor_bottom = 0.591
+margin_top = 0.00699997
+margin_bottom = -0.00699997
+custom_styles/fg = SubResource( 7 )
+custom_styles/bg = SubResource( 8 )
+rounded = true
+percent_visible = false
 
 [editable path="Player"]

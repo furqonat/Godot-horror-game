@@ -9,33 +9,33 @@ radius = 0.0934977
 
 [sub_resource type="CapsuleShape" id=2]
 radius = 0.357774
-height = 3.17193
-
-[sub_resource type="AnimationNodeAnimation" id=7]
-animation = "attack"
-
-[sub_resource type="AnimationNodeOneShot" id=8]
+height = 2.70211
 
 [sub_resource type="AnimationNodeAnimation" id=3]
+animation = "attack"
+
+[sub_resource type="AnimationNodeOneShot" id=4]
+
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "idle loop"
 
-[sub_resource type="AnimationNodeAnimation" id=4]
+[sub_resource type="AnimationNodeAnimation" id=6]
 animation = "run loop"
 
-[sub_resource type="AnimationNodeBlendSpace1D" id=5]
-blend_point_0/node = SubResource( 3 )
+[sub_resource type="AnimationNodeBlendSpace1D" id=7]
+blend_point_0/node = SubResource( 5 )
 blend_point_0/pos = 0.0
-blend_point_1/node = SubResource( 4 )
+blend_point_1/node = SubResource( 6 )
 blend_point_1/pos = 1.0
 min_space = 0.0
 
-[sub_resource type="AnimationNodeBlendTree" id=6]
+[sub_resource type="AnimationNodeBlendTree" id=8]
 graph_offset = Vector2( -317.333, -200.667 )
-nodes/Animation/node = SubResource( 7 )
+nodes/Animation/node = SubResource( 3 )
 nodes/Animation/position = Vector2( -106.667, 346.667 )
-nodes/attack/node = SubResource( 8 )
+nodes/attack/node = SubResource( 4 )
 nodes/attack/position = Vector2( 133.333, 186.667 )
-nodes/walk/node = SubResource( 5 )
+nodes/walk/node = SubResource( 7 )
 nodes/walk/position = Vector2( -106.667, 80 )
 node_connections = [ "output", 0, "attack", "attack", 0, "walk", "attack", 1, "Animation" ]
 
@@ -45,7 +45,7 @@ script = ExtResource( 2 )
 [node name="zombie" parent="." instance=ExtResource( 1 )]
 
 [node name="area attack" type="BoneAttachment" parent="zombie/Armature/Skeleton" index="3"]
-transform = Transform( 0.126299, 0.830316, -0.542792, 0.034006, 0.543228, 0.838896, 0.991409, -0.124409, 0.0403734, 0.250538, 1.14901, -0.238439 )
+transform = Transform( 0.10648, 0.811711, -0.574271, 0.0334167, 0.574307, 0.817958, 0.993753, -0.106287, 0.0340273, 0.234254, 1.15049, -0.252524 )
 bone_name = "RightHand"
 
 [node name="StaticBody" type="StaticBody" parent="zombie/Armature/Skeleton/area attack"]
@@ -56,11 +56,11 @@ script = ExtResource( 3 )
 shape = SubResource( 1 )
 
 [node name="body" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.01625, -0.0258037 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.7717, -0.0258037 )
 shape = SubResource( 2 )
 
 [node name="animation_tree" type="AnimationTree" parent="."]
-tree_root = SubResource( 6 )
+tree_root = SubResource( 8 )
 anim_player = NodePath("../zombie/AnimationPlayer")
 active = true
 root_motion_track = NodePath("Armature/Skeleton:Root")
